@@ -12,9 +12,13 @@ import DoneIcon from "@mui/icons-material/Done";
 import ListIcon from "@mui/icons-material/List";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import SidebarOptions from "./SidebarOptions";
+import LoyaltyIcon from "@mui/icons-material/Loyalty";
+import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
+import PremiumBadgeIcon from "../PremiumBadgeIcon";
 import axios from "axios";
 import { BASE_URL } from "../../helper";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+
 import {
   Avatar,
   Button,
@@ -32,36 +36,15 @@ import useLoggedIn from "../../hooks/useLoggedIn";
 const Sidebar = ({ handleLogout, user }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const openMenu = Boolean(anchorEl);
-  const [loggedInUser, setLoggedInUser] = useLoggedIn();
-
-  // console.log("HOLA", user[0]?.email);
+  const [loggedInUser] = useLoggedIn();
+  //console.log("POP", loggedInUser);
+  //console.log("HOLA", user[0]?.displayName);
   const email = user[0]?.email;
-  // useEffect(() => {
-
-  // },[]);
-  useEffect(() => {
-    const fetchDetails = () => {
-      axios
-        .get(`${BASE_URL}/loggedInUser?email=${user[0]?.email}`)
-        .then((response) => {
-          const data = response.data;
-          //console.log("ABC:", data);
-          setLoggedInUser(data);
-          //console.log("Hzzz:", loggedInUser);
-        })
-        .catch((error) => {
-          console.error("Error fetching data:", error);
-        });
-    };
-
-    fetchDetails();
-  }, []);
 
   const userProfilePic = loggedInUser[0]?.profileImage
     ? loggedInUser[0]?.profileImage
     : "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png";
-  // const userProfilePic =
-  //   "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png";
+
   const handleClick = (e) => {
     // console.log(e.curentTarget);
     setAnchorEl(true);
@@ -98,7 +81,12 @@ const Sidebar = ({ handleLogout, user }) => {
       <CustomLink to="/home/more">
         <SidebarOptions active Icon={MoreIcon} text="More" />
       </CustomLink>
-
+      <CustomLink to="/home/subscribe">
+        <SidebarOptions active Icon={LoyaltyIcon} text="Subscribe" />
+      </CustomLink>
+      <CustomLink to="/home/premium">
+        <SidebarOptions active Icon={WorkspacePremiumIcon} text="Premium+" />
+      </CustomLink>
       <Button variant="outlined" className="sidebar_tweet">
         Tweet
       </Button>
@@ -107,7 +95,14 @@ const Sidebar = ({ handleLogout, user }) => {
         <Avatar src={userProfilePic} />
         <div className="user_info">
           <h4>
-            <h4>{loggedInUser[0]?.name || "HELLO"}</h4>
+            <h4>
+              {loggedInUser[0]?.name
+                ? loggedInUser[0]?.name
+                : user && user[0]?.displayName}
+              {loggedInUser[0]?.premiumVerificationApplied === "approved" && (
+                <PremiumBadgeIcon />
+              )}
+            </h4>
           </h4>
           <h5>@{result}</h5>
         </div>
@@ -133,7 +128,13 @@ const Sidebar = ({ handleLogout, user }) => {
             <div className="user_info subUser_info">
               <div>
                 <h4>
-                  <h4>{loggedInUser[0]?.name || "HELLO"}</h4>
+                  <h4>
+                    {loggedInUser[0]?.name
+                      ? loggedInUser[0]?.name
+                      : user && user[0]?.displayName}
+                    {loggedInUser[0]?.premiumVerificationApplied ===
+                      "approved" && <PremiumBadgeIcon />}
+                  </h4>
                 </h4>
                 <h5>@{result}</h5>
               </div>

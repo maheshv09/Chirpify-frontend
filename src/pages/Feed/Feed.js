@@ -5,8 +5,13 @@ import "../Page.css";
 import Post from "./Post/Post";
 import axios from "axios";
 import { BASE_URL } from "../../helper";
-const Feed = ({ user }) => {
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase-init";
+import useLoggedIn from "../../hooks/useLoggedIn";
+const Feed = () => {
   const [posts, setPosts] = useState([]);
+  const [loggedInUser] = useLoggedIn();
+  const subscriptionType = loggedInUser[0]?.subscriptionType;
 
   useEffect(() => {
     fetch(`${BASE_URL}/getPosts`)
@@ -18,7 +23,7 @@ const Feed = ({ user }) => {
   return (
     <div className="feedContainer">
       <h2>Home</h2>
-      <TweetBox />
+      <TweetBox subscriptionType={subscriptionType} />
       {posts.map((p) => (
         <Post key={p._id} p={p} />
       ))}

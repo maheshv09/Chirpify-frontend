@@ -11,6 +11,7 @@ import axios from "axios";
 import Post from "../../Feed/Post/Post";
 import EditProfile from "../EditProfile/EditProfile";
 import { BASE_URL } from "../../../helper";
+import PremiumBadgeIcon from "../../PremiumBadgeIcon";
 const MainPage = ({ user }) => {
   const navigate = useNavigate();
   const username = user?.email?.split("@")[0];
@@ -134,7 +135,6 @@ const MainPage = ({ user }) => {
                     alt=""
                     className="avatar"
                   />
-
                   <div className="hoverAvatarImage">
                     <div className="imageIcon_tweetButton">
                       <label htmlFor="profileImage" className="imageIcon">
@@ -144,7 +144,6 @@ const MainPage = ({ user }) => {
                           <CenterFocusWeakIcon className="photoIcon" />
                         )}
                       </label>
-
                       <input
                         type="file"
                         id="profileImage"
@@ -160,6 +159,8 @@ const MainPage = ({ user }) => {
                       {loggedInUser[0]?.name
                         ? loggedInUser[0]?.name
                         : user && user?.displayName}
+                      {loggedInUser[0]?.premiumVerificationApplied ===
+                        "approved" && <PremiumBadgeIcon />}
                     </h3>
                     <p className="usernameSection">@{username}</p>
                   </div>

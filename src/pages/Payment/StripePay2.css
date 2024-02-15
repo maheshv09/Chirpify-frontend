@@ -1,0 +1,32 @@
+.paymentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .paymentContainer h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .paymentContainer p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .paymentContainer .stripeCheckoutButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .paymentContainer .stripeCheckoutButton:hover {
+    background-color: #0056b3;
+  }
+  

@@ -13,6 +13,15 @@ import Bookmarks from "./pages/Bookmarks/Bookmarks.js";
 import Lists from "./pages/Lists/Lists.js";
 import Profile from "./pages/Profile/Profile.js";
 import More from "./pages/More/More.js";
+import Subscribe from "./pages/Subscribe/Subscribe.js";
+import Payment from "./pages/Payment/Payment.js";
+import Payment1 from "./pages/Payment/Payment1.js";
+import StripePay from "./pages/Payment/StripePay.js";
+import Premium from "./pages/PremiumVerification/Premium.js";
+import StripePay2 from "./pages/Payment/StripePay2.js";
+import AdminLogin from "./pages/Login/AdminLogin.js";
+import AdminDashboard from "./AdminDashboard/AdminDashboard.js";
+import ProtectedAdminRoute from "./pages/ProtectedAdminRoute.js";
 function App() {
   return (
     <div className="App">
@@ -44,10 +53,23 @@ function App() {
             <Route path="lists" element={<Lists />} />
             <Route path="profile" element={<Profile />} />
             <Route path="more" element={<More />} />
+            <Route path="subscribe" element={<Subscribe />} />
+            <Route path="premium" element={<Premium />} />
           </Route>
           <Route path="/login" element={<Login />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route
+            path="/admin-dashboard"
+            element={
+              <ProtectedAdminRoute>
+                <AdminDashboard />
+              </ProtectedAdminRoute>
+            }
+          />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/page-loading" element={<PageLoading />} />
+          <Route path="/payment/:subscriptionType" element={<StripePay />} />
+          <Route path="/premPay" element={<StripePay2 />} />
         </Routes>
       </BrowserRouter>
     </div>
