@@ -1,102 +1,85 @@
 .premiumForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .formInput {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  .formInput h4{
-    font-size: 17px;
-  }
-  .formInput label {
-    font-size: 20px;
-    margin-bottom: 8px;
-    display: block;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-  
-  .formInput input,
-  .formInput textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease-in-out;
-  }
-  
-  .formInput input[type="file"] {
-    margin-top: 10px;
-  }
-  
-  .formInput input:focus,
-  .formInput textarea:focus {
-    border-color: #007bff;
-  }
-  
-  .formInput button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 24px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .formInput button:hover {
-    background-color: #0056b3;
-  }
-  
-  .fileInputLabel {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  .fileInputLabel span {
-    color: #007bff;
-    text-decoration: underline;
-    cursor: pointer;
-    /* border: 1px solid black; */
-    margin-left: 37%;
-  }
-  
-  .fileInputLabel span:hover {
-    text-decoration: none;
-  }
-  
-  .fileSel {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #fff;
-    transition: border-color 0.3s ease-in-out;
-  }
-  
-  .fileSel:focus {
-    outline: none;
-    border-color: #007bff;
-  }
-  
-  .fileInputLabel {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  .fileInputLabel span {
-    color: #007bff;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
-  .fileInputLabel span:hover {
-    text-decoration: none;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 600px; /* Limit width for smaller screens */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+.formInput {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.formInput label {
+  font-size: 20px;
+  margin-bottom: 8px;
+  display: block;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.formInput input,
+.formInput textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.formInput input[type="file"] {
+  margin-top: 10px;
+}
+
+.formInput input:focus,
+.formInput textarea:focus {
+  border-color: #007bff;
+}
+
+.formInput button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.formInput button:hover {
+  background-color: #0056b3;
+}
+
+.fileInputLabel {
+  display: block;
+  margin-top: 10px;
+}
+
+.fileInputLabel span {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: calc(50% - 30px); /* Center the text */
+}
+
+.fileInputLabel span:hover {
+  text-decoration: none;
+}
+
+.fileSel {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.fileSel:focus {
+  outline: none;
+  border-color: #007bff;
+}

@@ -23,9 +23,8 @@ const Premium = () => {
 
     try {
       const formData = new FormData();
-      formData.append("image", identityDocument); // Append only the image file
+      formData.append("image", identityDocument);
 
-      // Upload the image file
       const res = await axios.post(
         "https://api.imgbb.com/1/upload?key=063526088627f6e6262606d676b60f2e",
         formData
@@ -33,17 +32,15 @@ const Premium = () => {
 
       const imageUrl = res.data.data.display_url;
       console.log("urll", imageUrl);
-      // Now you can use imageUrl to submit the application with the image URL
 
       const applicationData = {
         name,
         email,
         reason,
         socialMediaProfiles,
-        identityDocument: imageUrl, // Use the image URL instead of the file
+        identityDocument: imageUrl,
       };
 
-      // Submit the premium badge application with the image URL
       await axios.post(`${BASE_URL}/applyForPremiumBadge`, applicationData);
       setIsLoading(false);
       console.log("Application submitted successfully");

@@ -20,8 +20,20 @@ const MainPage = ({ user }) => {
   //const [imageURL, setImageURL] = useState("");
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState("");
+  const [allowedTweets, setAllowedTweets] = useState("");
 
+  const [todaysTweets, setTodaysTweets] = useState(0);
+  const [dispSubscr, setDispSubscr] = useState(0);
   useEffect(() => {
+    const subscriptionType = loggedInUser[0]?.subscriptionType;
+    subscriptionType
+      ? setDispSubscr(subscriptionType)
+      : setDispSubscr("Free plan");
+    setAllowedTweets(loggedInUser[0]?.allowedTweets);
+    if (allowedTweets == 99999) {
+      setAllowedTweets("Unlimited");
+    }
+    setTodaysTweets(loggedInUser[0]?.todaysTweets);
     fetch(`${BASE_URL}/userPost?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
@@ -34,7 +46,7 @@ const MainPage = ({ user }) => {
     const image = e.target.files[0];
     const formData = new FormData();
     formData.set("image", image);
-    console.log("ZXC", formData);
+    //console.log("ZXC", formData);
     axios
       .post(
         "https://api.imgbb.com/1/upload?key=e260abee406449ae9e7c159665ef502c",
@@ -163,6 +175,9 @@ const MainPage = ({ user }) => {
                         "approved" && <PremiumBadgeIcon />}
                     </h3>
                     <p className="usernameSection">@{username}</p>
+                    <h4>Subscribed Plan : {dispSubscr}</h4>
+                    <p>Allowed Tweets : {allowedTweets}</p>
+                    <p>Todays Tweets : {todaysTweets}</p>
                   </div>
                   <EditProfile user={user} loggedInUser={loggedInUser} />
                 </div>

@@ -1,60 +1,64 @@
-
 .subscriptionPage {
-    display: flex;
-    flex-direction:column;
-    /* align-items: center; */
-    /* padding: 20px; */
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .subscriptionPlans {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 800px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.subscriptionPlans {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.subscriptionPlan {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  width: 250px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.subscriptionPlan:hover {
+  transform: translateY(-5px);
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 8px 0;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* @media screen and (max-width: 600px) {
   .subscriptionPlan {
-    background-color: #f0f0f0;
-    margin-top: 10%;
-    margin-left: 20%;
-    border-radius: 10px;
-    width:250px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    margin-left: 0;
   }
-  
-  .subscriptionPlan:hover {
-    transform: translateY(-5px);
-  }
-  
-  h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    margin: 8px 0;
-  }
-  
-  button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+} */

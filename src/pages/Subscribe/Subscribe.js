@@ -15,7 +15,6 @@ const Subscribe = () => {
       <h2>Subscribe to Unlock Premium Features</h2>
 
       <div className="subscriptionPlans">
-        {/* Silver Plan */}
         <div className="subscriptionPlan">
           <h3>Silver Plan</h3>
           <p>₹100/month</p>
@@ -23,7 +22,6 @@ const Subscribe = () => {
           <button onClick={() => handleSubscribe("silver")}>Subscribe</button>
         </div>
 
-        {/* Gold Plan */}
         <div className="subscriptionPlan">
           <h3>Gold Plan</h3>
           <p>₹1000/month</p>
